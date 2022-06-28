@@ -87,6 +87,7 @@ def get_scatter_chart(entered_site, entered_payload):
     
     if entered_site == 'ALL':
         df = spacex_df
+        df = df[df['Payload Mass (kg)'].isin(range(entered_payload[0], entered_payload[1]))]
         fig = px.scatter(df, x="Payload Mass (kg)", y="class", color="Booster Version Category")
         return fig
         
